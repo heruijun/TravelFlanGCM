@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 
+import gcm.heruijun.com.common_lib.activity.BaseActivity;
 import gcm.heruijun.com.travelflangcm.services.QuickstartPreferences;
 import gcm.heruijun.com.travelflangcm.services.RegistrationIntentService;
 
@@ -23,7 +24,7 @@ import gcm.heruijun.com.travelflangcm.services.RegistrationIntentService;
  * Created by heruijun on 2017/12/10.
  */
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     private static final String TAG = "MainActivity";

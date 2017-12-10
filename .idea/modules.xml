@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/TravelFlanGCM.iml" filepath="$PROJECT_DIR$/TravelFlanGCM.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common-lib/common-lib.iml" filepath="$PROJECT_DIR$/common-lib/common-lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ui-lib/ui-lib.iml" filepath="$PROJECT_DIR$/ui-lib/ui-lib.iml" />
     </modules>
   </component>
 </project>
