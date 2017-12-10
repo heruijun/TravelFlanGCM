@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "58960681645",
+    "project_id": "travelflangcm"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:58960681645:android:9a183b66eb0eeeff",
+        "android_client_info": {
+          "package_name": "gcm.heruijun.com.travelflangcm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "58960681645-q0oraveglgjhj3djuj71kmprlt8t382i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqORY7A063jhJdNDAcXyP2ny_FQJ1P6Y4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
