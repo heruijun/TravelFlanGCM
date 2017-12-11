@@ -1,7 +1,9 @@
 package gcm.heruijun.com.travelflangcm;
 
+import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
@@ -26,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gcm.heruijun.com.common_lib.activity.BaseCompatActivity;
+import gcm.heruijun.com.common_lib.utils.DialogUtils;
 import gcm.heruijun.com.travelflangcm.adapter.MessageAdapter;
 import gcm.heruijun.com.travelflangcm.model.ChatMessage;
 import gcm.heruijun.com.travelflangcm.services.QuickstartPreferences;
@@ -40,21 +43,28 @@ public class MainActivity extends BaseCompatActivity {
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     private static final String TAG = "MainActivity";
     private BroadcastReceiver mRegistrationBroadcastReceiver;
-    private ProgressBar mRegistrationProgressBar;
     private boolean isReceiverRegistered;
     private RecyclerView mMessageListView;
     private List<ChatMessage> mMessages;
     private MessageAdapter mChatAdapter;
     private AppCompatEditText mEditText;
+    private Dialog mProgressDialog;
+    private boolean mSentToken;
+    public static final String MESSAGE_RECEIVED = "message_received";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mRegistrationProgressBar = findViewById(R.id.registrationProgressBar);
         mMessageListView = findViewById(R.id.list_chat_messages);
         mEditText = findViewById(R.id.message_edit);
+
+        obtainSentTokenStatus(MainActivity.this);
+        mProgressDialog = DialogUtils.createProgressDialog(MainActivity.this);
+        if (!mSentToken) {
+            mProgressDialog.show();
+        }
 
         registerGCMReceiver();
 
@@ -69,6 +79,11 @@ public class MainActivity extends BaseCompatActivity {
         mMessageListView.setAdapter(mChatAdapter);
     }
 
+    /**
+     * client to server
+     *
+     * @param v
+     */
     public void sendMessage(View v) {
         if (TextUtils.isEmpty(mEditText.getText().toString())) {
             TSnackbar.make(findViewById(android.R.id.content), "message can not be null !", TSnackbar.LENGTH_LONG).show();
@@ -78,21 +93,45 @@ public class MainActivity extends BaseCompatActivity {
         chat.setMessage(mEditText.getText().toString());
         chat.setLeftMessage(false);
         mChatAdapter.add(chat);
+        mEditText.setText("");
+        mMessageListView.scrollToPosition(mMessages.size() - 1);
+    }
+
+    /**
+     * server to client
+     *
+     * @param message
+     */
+    private void receiveMessage(String message) {
+        ChatMessage chat = new ChatMessage();
+        chat.setMessage(message);
+        chat.setLeftMessage(true);
+        mChatAdapter.add(chat);
+        mMessageListView.scrollToPosition(mMessages.size() - 1);
+    }
+
+    private void obtainSentTokenStatus(Context context) {
+        SharedPreferences sharedPreferences =
+                PreferenceManager.getDefaultSharedPreferences(context);
+        mSentToken = sharedPreferences
+                .getBoolean(QuickstartPreferences.SENT_TOKEN_TO_SERVER, false);
     }
 
     private void registerGCMReceiver() {
         mRegistrationBroadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                mRegistrationProgressBar.setVisibility(ProgressBar.GONE);
-                SharedPreferences sharedPreferences =
-                        PreferenceManager.getDefaultSharedPreferences(context);
-                boolean sentToken = sharedPreferences
-                        .getBoolean(QuickstartPreferences.SENT_TOKEN_TO_SERVER, false);
-                if (sentToken) {
-                    TSnackbar.make(findViewById(android.R.id.content), "GCM bind token success!", TSnackbar.LENGTH_LONG).show();
-                } else {
-                    TSnackbar.make(findViewById(android.R.id.content), "GCM bind token failed!", TSnackbar.LENGTH_LONG).show();
+                if (intent.getAction().equals(QuickstartPreferences.REGISTRATION_COMPLETE)) {
+                    mProgressDialog.dismiss();
+                    obtainSentTokenStatus(context);
+                    if (mSentToken) {
+                        TSnackbar.make(findViewById(android.R.id.content), "GCM bind token success!", TSnackbar.LENGTH_LONG).show();
+                    } else {
+                        TSnackbar.make(findViewById(android.R.id.content), "GCM bind token failed!", TSnackbar.LENGTH_LONG).show();
+                    }
+                } else if (intent.getAction().equals(MESSAGE_RECEIVED)) {
+                    String message = intent.getStringExtra("message");
+                    receiveMessage(message);
                 }
             }
         };
@@ -122,8 +161,10 @@ public class MainActivity extends BaseCompatActivity {
 
     private void registerReceiver() {
         if (!isReceiverRegistered) {
-            LocalBroadcastManager.getInstance(this).registerReceiver(mRegistrationBroadcastReceiver,
-                    new IntentFilter(QuickstartPreferences.REGISTRATION_COMPLETE));
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction(QuickstartPreferences.REGISTRATION_COMPLETE);
+            intentFilter.addAction(MESSAGE_RECEIVED);
+            LocalBroadcastManager.getInstance(this).registerReceiver(mRegistrationBroadcastReceiver, intentFilter);
             isReceiverRegistered = true;
         }
     }
@@ -149,4 +190,8 @@ public class MainActivity extends BaseCompatActivity {
         return true;
     }
 
+    @Override
+    public void onBackPressed() {
+        DialogUtils.showCommonDialog(MainActivity.this, "exit ?", (dialogInterface, i) -> finish());
+    }
 }

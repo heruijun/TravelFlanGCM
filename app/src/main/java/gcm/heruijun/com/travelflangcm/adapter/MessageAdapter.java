@@ -95,7 +95,7 @@ public class MessageAdapter<T extends ChatMessage> extends RecyclerView.Adapter<
     @Override
     public void add(T item) {
         chatMessages.add(item);
-        notifyItemInserted(chatMessages.size() + 1);
+        notifyItemInserted(chatMessages.size() - 1);
     }
 
     @Override

@@ -8,6 +8,7 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import com.google.android.gms.gcm.GcmListenerService;
@@ -48,6 +49,9 @@ public class MyGcmListenerService extends GcmListenerService {
          *     - Store message in local database.
          *     - Update UI.
          */
+        Intent intent = new Intent(MainActivity.MESSAGE_RECEIVED);
+        intent.putExtra("message", message);
+        LocalBroadcastManager.getInstance(MyGcmListenerService.this).sendBroadcast(intent);
 
         /**
          * In some cases it may be useful to show a notification indicating to the user
