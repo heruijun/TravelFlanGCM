@@ -2,13 +2,10 @@ package gcm.heruijun.com.travelflangcm;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.support.annotation.Nullable;
 
 import gcm.heruijun.com.common_lib.activity.BaseCompatActivity;
 import gcm.heruijun.com.common_lib.utils.AppUtils;
-import gcm.heruijun.com.travelflangcm.global.MyApplication;
 
 /**
  * Created by heruijun on 2017/12/10.
