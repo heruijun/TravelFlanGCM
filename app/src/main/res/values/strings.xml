@@ -7,4 +7,5 @@
         sending the fetched token to the server or subscribing to the PubSub topic. Please try
         running the sample again.</string>
     <string name="slogan">YOUR PERSONAL TRAVEL ASSISTANT</string>
+    <string name="send">send</string>
 </resources>

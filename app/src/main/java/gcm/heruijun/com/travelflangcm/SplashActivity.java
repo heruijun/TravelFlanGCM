@@ -7,6 +7,8 @@ import android.os.Looper;
 import android.support.annotation.Nullable;
 
 import gcm.heruijun.com.common_lib.activity.BaseCompatActivity;
+import gcm.heruijun.com.common_lib.utils.AppUtils;
+import gcm.heruijun.com.travelflangcm.global.MyApplication;
 
 /**
  * Created by heruijun on 2017/12/10.
@@ -19,7 +21,7 @@ public class SplashActivity extends BaseCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+        AppUtils.getHandler().postDelayed(() -> {
             startActivity(new Intent(SplashActivity.this, MainActivity.class));
             finish();
         }, 2000);
