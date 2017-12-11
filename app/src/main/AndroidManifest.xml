@@ -3,10 +3,17 @@
     package="gcm.heruijun.com.travelflangcm">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <!--<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />-->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
+    <permission
+        android:name="gcm.heruijun.com.travelflangcm.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="gcm.heruijun.com.travelflangcm.permission.C2D_MESSAGE" />
+
     <application
+        android:name=".global.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -25,11 +32,7 @@
         </activity>
 
         <activity android:name=".MainActivity">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
 
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
         </activity>
 
         <receiver

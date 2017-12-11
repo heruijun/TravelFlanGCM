@@ -5,16 +5,14 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 
-import gcm.heruijun.com.common_lib.activity.BaseActivity;
-import gcm.heruijun.com.ui_lib.PrintTextView;
+import gcm.heruijun.com.common_lib.activity.BaseCompatActivity;
 
 /**
  * Created by heruijun on 2017/12/10.
  */
 
-public class SplashActivity extends BaseActivity {
+public class SplashActivity extends BaseCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
