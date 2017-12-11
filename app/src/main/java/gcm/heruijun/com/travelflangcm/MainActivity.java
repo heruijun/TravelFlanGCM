@@ -8,7 +8,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -16,7 +15,7 @@ import android.widget.TextView;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 
-import gcm.heruijun.com.common_lib.activity.BaseActivity;
+import gcm.heruijun.com.common_lib.activity.BaseCompatActivity;
 import gcm.heruijun.com.travelflangcm.services.QuickstartPreferences;
 import gcm.heruijun.com.travelflangcm.services.RegistrationIntentService;
 
@@ -24,7 +23,7 @@ import gcm.heruijun.com.travelflangcm.services.RegistrationIntentService;
  * Created by heruijun on 2017/12/10.
  */
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseCompatActivity {
 
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     private static final String TAG = "MainActivity";
