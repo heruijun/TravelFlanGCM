@@ -5,7 +5,7 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 
-import gcm.heruijun.com.common_lib.global.GlobalApplication;
+import com.gcm.heruijun.base.common.GlobalApplication;
 
 /**
  * Created by heruijun on 2017/12/11.

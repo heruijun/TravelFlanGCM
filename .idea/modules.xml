@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/BaseLibrary/BaseLibrary.iml" filepath="$PROJECT_DIR$/BaseLibrary/BaseLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Provider/Provider.iml" filepath="$PROJECT_DIR$/Provider/Provider.iml" />
       <module fileurl="file://$PROJECT_DIR$/TravelFlanGCM.iml" filepath="$PROJECT_DIR$/TravelFlanGCM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UserCenter/UserCenter.iml" filepath="$PROJECT_DIR$/UserCenter/UserCenter.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/common-lib/common-lib.iml" filepath="$PROJECT_DIR$/common-lib/common-lib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ui-lib/ui-lib.iml" filepath="$PROJECT_DIR$/ui-lib/ui-lib.iml" />
     </modules>
   </component>
 </project>

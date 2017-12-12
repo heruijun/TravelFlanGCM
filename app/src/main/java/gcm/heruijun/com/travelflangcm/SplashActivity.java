@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import gcm.heruijun.com.common_lib.activity.BaseCompatActivity;
-import gcm.heruijun.com.common_lib.utils.AppUtils;
+import com.gcm.heruijun.base.ui.activity.BaseCompatActivity;
+import com.gcm.heruijun.base.utils.AppUtils;
 
 /**
  * Created by heruijun on 2017/12/10.

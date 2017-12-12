@@ -1,6 +1,11 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+    ext.compile_sdk_version = 26
+    ext.min_sdk_version = 15
+    ext.target_sdk_version = 26
+    ext.android_support_version = "26.0.2"
+
     ext.kotlin_version = '1.1.51'
     repositories {
         google()
@@ -24,14 +29,4 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
-}
-
-ext {
-    okhttploggingVersion = '3.4.1'
-    okhttpVersion = '3.4.1'
-    retrofitVersion = '2.2.0'
-    rxjavaVersion = '2.0.1'
-    rxandroidVersion = '2.0.1'
-    rxbindingVersion = '2.0.0'
-    rxPerssionsVersion = '0.9.4@aar'
 }

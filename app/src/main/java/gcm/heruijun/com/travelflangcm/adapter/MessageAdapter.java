@@ -14,7 +14,7 @@ import java.util.List;
 
 import gcm.heruijun.com.travelflangcm.R;
 import gcm.heruijun.com.travelflangcm.model.bean.ChatMessage;
-import gcm.heruijun.com.ui_lib.adapter.BaseAdapter;
+import com.gcm.heruijun.base.ui.adapter.BaseAdapter;
 
 /**
  * Created by heruijun on 2017/12/11.

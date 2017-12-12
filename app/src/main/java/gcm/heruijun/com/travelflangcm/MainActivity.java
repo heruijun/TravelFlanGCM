@@ -17,14 +17,14 @@ import android.util.Log;
 import android.view.View;
 
 import com.androidadvance.topsnackbar.TSnackbar;
+import com.gcm.heruijun.base.ui.activity.BaseCompatActivity;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import gcm.heruijun.com.common_lib.activity.BaseCompatActivity;
-import gcm.heruijun.com.common_lib.utils.DialogUtils;
+import com.gcm.heruijun.base.utils.DialogUtils;
 import gcm.heruijun.com.travelflangcm.adapter.MessageAdapter;
 import gcm.heruijun.com.travelflangcm.model.bean.ChatMessage;
 import gcm.heruijun.com.travelflangcm.services.QuickstartPreferences;
