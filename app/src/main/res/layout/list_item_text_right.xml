@@ -13,11 +13,15 @@
         android:id="@+id/msg_text_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/corner_bg_2"
         android:maxWidth="300dp"
-        android:paddingBottom="3dp"
-        android:paddingTop="3dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
         android:text="right message"
-        android:textColor="@color/colorBlack"
+        android:textColor="@color/colorGray"
         android:textSize="16sp"
         app:layout_constraintRight_toRightOf="parent" />
 

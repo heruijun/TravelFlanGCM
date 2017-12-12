@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.annotation.IdRes;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.util.SparseArray;
 import android.util.SparseIntArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +13,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import gcm.heruijun.com.travelflangcm.R;
-import gcm.heruijun.com.travelflangcm.model.ChatMessage;
+import gcm.heruijun.com.travelflangcm.model.bean.ChatMessage;
 import gcm.heruijun.com.ui_lib.adapter.BaseAdapter;
 
 /**

@@ -3,7 +3,6 @@ package gcm.heruijun.com.travelflangcm;
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
@@ -27,7 +26,7 @@ import java.util.List;
 import gcm.heruijun.com.common_lib.activity.BaseCompatActivity;
 import gcm.heruijun.com.common_lib.utils.DialogUtils;
 import gcm.heruijun.com.travelflangcm.adapter.MessageAdapter;
-import gcm.heruijun.com.travelflangcm.model.ChatMessage;
+import gcm.heruijun.com.travelflangcm.model.bean.ChatMessage;
 import gcm.heruijun.com.travelflangcm.services.QuickstartPreferences;
 import gcm.heruijun.com.travelflangcm.services.RegistrationIntentService;
 

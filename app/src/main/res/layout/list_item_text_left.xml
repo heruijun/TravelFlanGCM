@@ -12,11 +12,15 @@
         android:id="@+id/msg_text_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/corner_bg_1"
         android:maxWidth="300dp"
-        android:paddingBottom="3dp"
-        android:paddingTop="3dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
         android:text="left message"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorWhite"
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="parent" />
 

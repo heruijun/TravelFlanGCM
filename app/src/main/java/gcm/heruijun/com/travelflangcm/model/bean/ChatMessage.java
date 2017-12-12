@@ -1,4 +1,4 @@
-package gcm.heruijun.com.travelflangcm.model;
+package gcm.heruijun.com.travelflangcm.model.bean;
 
 /**
  * Created by heruijun on 2017/12/11.
