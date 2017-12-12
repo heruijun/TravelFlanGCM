@@ -1,4 +1,4 @@
-package gcm.heruijun.com.travelflangcm;
+package gcm.heruijun.com.travelflangcm.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 
 import com.gcm.heruijun.base.ui.activity.BaseCompatActivity;
 import com.gcm.heruijun.base.utils.AppUtils;
+
+import gcm.heruijun.com.travelflangcm.R;
 
 /**
  * Created by heruijun on 2017/12/10.

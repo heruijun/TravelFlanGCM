@@ -1,4 +1,4 @@
-package gcm.heruijun.com.travelflangcm.adapter;
+package gcm.heruijun.com.travelflangcm.ui.adapter;
 
 import android.content.Context;
 import android.support.annotation.IdRes;
@@ -13,7 +13,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import gcm.heruijun.com.travelflangcm.R;
-import gcm.heruijun.com.travelflangcm.model.bean.ChatMessage;
+import gcm.heruijun.com.travelflangcm.data.protocol.ChatMessage;
 import com.gcm.heruijun.base.ui.adapter.BaseAdapter;
 
 /**

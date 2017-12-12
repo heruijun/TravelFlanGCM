@@ -1,4 +1,4 @@
-package gcm.heruijun.com.travelflangcm;
+package gcm.heruijun.com.travelflangcm.ui.activity;
 
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
@@ -25,8 +25,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.gcm.heruijun.base.utils.DialogUtils;
-import gcm.heruijun.com.travelflangcm.adapter.MessageAdapter;
-import gcm.heruijun.com.travelflangcm.model.bean.ChatMessage;
+
+import gcm.heruijun.com.travelflangcm.R;
+import gcm.heruijun.com.travelflangcm.ui.adapter.MessageAdapter;
+import gcm.heruijun.com.travelflangcm.data.protocol.ChatMessage;
 import gcm.heruijun.com.travelflangcm.services.QuickstartPreferences;
 import gcm.heruijun.com.travelflangcm.services.RegistrationIntentService;
 

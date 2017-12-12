@@ -13,7 +13,7 @@ import android.util.Log;
 
 import com.google.android.gms.gcm.GcmListenerService;
 
-import gcm.heruijun.com.travelflangcm.MainActivity;
+import gcm.heruijun.com.travelflangcm.ui.activity.MainActivity;
 import gcm.heruijun.com.travelflangcm.R;
 
 /**

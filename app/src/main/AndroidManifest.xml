@@ -13,7 +13,7 @@
     <uses-permission android:name="gcm.heruijun.com.travelflangcm.permission.C2D_MESSAGE" />
 
     <application
-        android:name=".global.MyApplication"
+        android:name=".common.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -22,7 +22,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".SplashActivity"
+            android:name=".ui.activity.SplashActivity"
             android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,7 +31,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.activity.MainActivity">
 
         </activity>
 

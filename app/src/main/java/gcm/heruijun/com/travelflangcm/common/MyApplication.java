@@ -1,4 +1,4 @@
-package gcm.heruijun.com.travelflangcm.global;
+package gcm.heruijun.com.travelflangcm.common;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
