@@ -15,7 +15,7 @@ git checkout -b java8
 see https://github.com/heruijun/TravelFlanServer
 
 ## architecture
-kotlin + anko + gcm
+kotlin + anko + gcm + md
 
 ## modularization development
 
