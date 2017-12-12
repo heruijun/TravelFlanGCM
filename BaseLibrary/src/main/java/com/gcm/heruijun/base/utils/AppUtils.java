@@ -30,7 +30,7 @@ public class AppUtils {
      * @return 上下文对象
      */
     public static Context getContext() {
-        return GlobalApplication.getContext();
+        return GlobalApplication.Companion.getContext();
     }
 
     /**
@@ -39,7 +39,7 @@ public class AppUtils {
      * @return 全局handler
      */
     public static Handler getHandler() {
-        return GlobalApplication.getHandler();
+        return GlobalApplication.Companion.getHandler();
     }
 
     /**
@@ -48,7 +48,7 @@ public class AppUtils {
      * @return 主线程id
      */
     public static int getMainThreadId() {
-        return GlobalApplication.getMainThreadId();
+        return GlobalApplication.Companion.getMainThreadId();
     }
 
     /**

@@ -42,4 +42,9 @@ dependencies {
     testCompile 'junit:junit:4.12'
 
     compile project(':Provider')
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+}
+apply plugin: 'kotlin-android'
+repositories {
+    mavenCentral()
 }
