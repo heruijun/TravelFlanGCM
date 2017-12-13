@@ -1,6 +1,9 @@
 package com.gcm.heruijun.base.widgets
 
+import android.support.constraint.ConstraintLayout
 import android.view.ViewManager
+import org.jetbrains.anko.AnkoViewDslMarker
+import org.jetbrains.anko._LinearLayout
 import org.jetbrains.anko.custom.ankoView
 
 /**

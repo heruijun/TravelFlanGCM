@@ -4,7 +4,7 @@ import android.os.Bundle
 
 import com.gcm.heruijun.base.ui.activity.BaseCompatActivity
 import com.gcm.heruijun.base.utils.AppUtils
-import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.*
 
 /**
  * Created by heruijun on 2017/12/10.
