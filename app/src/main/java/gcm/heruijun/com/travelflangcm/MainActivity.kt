@@ -6,7 +6,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
-import android.preference.EditTextPreference
 import android.preference.PreferenceManager
 import android.support.v4.content.LocalBroadcastManager
 import android.support.v7.widget.AppCompatEditText
@@ -105,9 +104,9 @@ class MainActivity : BaseCompatActivity(), AnkoLogger {
                     mProgressDialog.dismiss()
                     obtainSentTokenStatus(context)
                     if (mSentToken) {
-                        TSnackbar.make(findViewById(android.R.id.content), "GCM bind token success!", TSnackbar.LENGTH_LONG).show()
+                        TSnackbar.make(find(android.R.id.content), "GCM bind token success!", TSnackbar.LENGTH_LONG).show()
                     } else {
-                        TSnackbar.make(findViewById(android.R.id.content), "GCM bind token failed!", TSnackbar.LENGTH_LONG).show()
+                        TSnackbar.make(find(android.R.id.content), "GCM bind token failed!", TSnackbar.LENGTH_LONG).show()
                     }
                 } else if (intent.action == MESSAGE_RECEIVED) {
                     val message = intent.getStringExtra("message")

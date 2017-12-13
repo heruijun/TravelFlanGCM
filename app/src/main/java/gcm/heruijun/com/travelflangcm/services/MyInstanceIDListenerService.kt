@@ -22,7 +22,6 @@ class MyInstanceIDListenerService : InstanceIDListenerService() {
     }
 
     companion object {
-
         private val TAG = "MyInstanceIDLS"
     }
 }
