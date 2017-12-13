@@ -12,10 +12,14 @@ import android.support.v7.widget.AppCompatEditText
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.text.TextUtils
+import android.view.ViewManager
+import android.widget.EditText
 
 import com.androidadvance.topsnackbar.TSnackbar
 import com.gcm.heruijun.base.ui.activity.BaseCompatActivity
 import com.gcm.heruijun.base.utils.DialogUtils
+import com.gcm.heruijun.base.widgets.PrintingTextView
+import com.gcm.heruijun.base.widgets.printingTextView
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 
@@ -25,8 +29,10 @@ import gcm.heruijun.com.travelflangcm.adapter.MessageAdapter
 import gcm.heruijun.com.travelflangcm.data.protocol.ChatMessage
 import gcm.heruijun.com.travelflangcm.services.QuickstartPreferences
 import gcm.heruijun.com.travelflangcm.services.RegistrationIntentService
-import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.*
+import org.jetbrains.anko.custom.ankoView
+import org.jetbrains.anko.recyclerview.v7.recyclerView
+import org.jetbrains.anko.sdk25.coroutines.onClick
 
 /**
  * Created by heruijun on 2017/12/10.
@@ -39,16 +45,39 @@ class MainActivity : BaseCompatActivity(), AnkoLogger {
     private lateinit var mMessageListView: RecyclerView
     private lateinit var mMessages: MutableList<ChatMessage>
     private lateinit var mChatAdapter: MessageAdapter<ChatMessage>
-    private lateinit var mEditText: AppCompatEditText
+    private lateinit var mEditText: EditText
     private lateinit var mProgressDialog: Dialog
     private var mSentToken: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        mMessageListView = find<RecyclerView>(R.id.mMessageListView)
-        mEditText = find<AppCompatEditText>(R.id.mEditText)
+        verticalLayout {
+            mMessageListView = recyclerView().lparams(width = matchParent, height = 0, weight = 1f) {
+                topPadding = 15
+                bottomPadding = 15
+            }
+
+            linearLayout {
+                mEditText = editText().lparams(width = 0, height = wrapContent, weight = 1f)
+                button {
+                    text = "Send"
+                    backgroundColorResource = R.color.colorPrimary
+                    textColorResource = R.color.colorWhite
+
+                    onClick {
+                        if (TextUtils.isEmpty(mEditText.text.toString())) {
+                            snackbarToast("message can not be null !")
+                        } else {
+                            val chat = ChatMessage(mEditText.text.toString(), false)
+                            mChatAdapter.add(chat)
+                            mEditText.setText("")
+                            mMessageListView.scrollToPosition(mMessages.size - 1)
+                        }
+                    }
+                }
+            }
+        }
 
         obtainSentTokenStatus(this)
         mProgressDialog = DialogUtils.createProgressDialog(this)
@@ -59,17 +88,10 @@ class MainActivity : BaseCompatActivity(), AnkoLogger {
         registerGCMReceiver()
 
         initData()
+    }
 
-        mSendMessage.setOnClickListener {
-            if (TextUtils.isEmpty(mEditText.text.toString())) {
-                TSnackbar.make(findViewById(android.R.id.content), "message can not be null !", TSnackbar.LENGTH_LONG).show()
-            } else {
-                val chat = ChatMessage(mEditText.text.toString(), false)
-                mChatAdapter.add(chat)
-                mEditText.setText("")
-                mMessageListView.scrollToPosition(mMessages.size - 1)
-            }
-        }
+    fun snackbarToast(message: CharSequence) {
+        TSnackbar.make(find(android.R.id.content), message, TSnackbar.LENGTH_LONG).show()
     }
 
     private fun initData() {

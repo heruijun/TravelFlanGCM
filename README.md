@@ -16,6 +16,7 @@ see https://github.com/heruijun/TravelFlanServer
 
 ## architecture
 kotlin + anko + gcm + md
+DSL Layout
 
 ## modularization development
 

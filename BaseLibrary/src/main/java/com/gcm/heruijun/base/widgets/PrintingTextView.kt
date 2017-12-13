@@ -8,7 +8,7 @@ import android.widget.TextView
  * Created by heruijun on 2017/12/10.
  */
 
-class PrintTextView : android.support.v7.widget.AppCompatTextView {
+class PrintingTextView : android.support.v7.widget.AppCompatTextView {
 
     constructor(context: Context) : super(context) {
         init()
