@@ -8,18 +8,13 @@ import android.content.IntentFilter
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.support.v4.content.LocalBroadcastManager
-import android.support.v7.widget.AppCompatEditText
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.text.TextUtils
-import android.view.ViewManager
 import android.widget.EditText
 
-import com.androidadvance.topsnackbar.TSnackbar
 import com.gcm.heruijun.base.ui.activity.BaseCompatActivity
 import com.gcm.heruijun.base.utils.DialogUtils
-import com.gcm.heruijun.base.widgets.PrintingTextView
-import com.gcm.heruijun.base.widgets.printingTextView
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 
@@ -30,7 +25,6 @@ import gcm.heruijun.com.travelflangcm.data.protocol.ChatMessage
 import gcm.heruijun.com.travelflangcm.services.QuickstartPreferences
 import gcm.heruijun.com.travelflangcm.services.RegistrationIntentService
 import org.jetbrains.anko.*
-import org.jetbrains.anko.custom.ankoView
 import org.jetbrains.anko.recyclerview.v7.recyclerView
 import org.jetbrains.anko.sdk25.coroutines.onClick
 
@@ -90,10 +84,6 @@ class MainActivity : BaseCompatActivity(), AnkoLogger {
         initData()
     }
 
-    fun snackbarToast(message: CharSequence) {
-        TSnackbar.make(find(android.R.id.content), message, TSnackbar.LENGTH_LONG).show()
-    }
-
     private fun initData() {
         mMessages = ArrayList()
         mChatAdapter = MessageAdapter(this, mMessages)
@@ -126,9 +116,9 @@ class MainActivity : BaseCompatActivity(), AnkoLogger {
                     mProgressDialog.dismiss()
                     obtainSentTokenStatus(context)
                     if (mSentToken) {
-                        TSnackbar.make(find(android.R.id.content), "GCM bind token success!", TSnackbar.LENGTH_LONG).show()
+                        snackbarToast("GCM bind token success!")
                     } else {
-                        TSnackbar.make(find(android.R.id.content), "GCM bind token failed!", TSnackbar.LENGTH_LONG).show()
+                        snackbarToast("GCM bind token failed!")
                     }
                 } else if (intent.action == MESSAGE_RECEIVED) {
                     val message = intent.getStringExtra("message")
