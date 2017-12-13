@@ -12,7 +12,6 @@ import android.support.v7.widget.AppCompatEditText
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.text.TextUtils
-import android.util.Log
 
 import com.androidadvance.topsnackbar.TSnackbar
 import com.gcm.heruijun.base.ui.activity.BaseCompatActivity
@@ -27,16 +26,13 @@ import gcm.heruijun.com.travelflangcm.data.protocol.ChatMessage
 import gcm.heruijun.com.travelflangcm.services.QuickstartPreferences
 import gcm.heruijun.com.travelflangcm.services.RegistrationIntentService
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.alert
-import org.jetbrains.anko.intentFor
-import org.jetbrains.anko.noButton
-import org.jetbrains.anko.yesButton
+import org.jetbrains.anko.*
 
 /**
  * Created by heruijun on 2017/12/10.
  */
 
-class MainActivity : BaseCompatActivity() {
+class MainActivity : BaseCompatActivity(), AnkoLogger {
 
     private lateinit var mRegistrationBroadcastReceiver: BroadcastReceiver
     private var isReceiverRegistered: Boolean = false
@@ -162,7 +158,7 @@ class MainActivity : BaseCompatActivity() {
                 apiAvailability.getErrorDialog(this, resultCode, PLAY_SERVICES_RESOLUTION_REQUEST)
                         .show()
             } else {
-                Log.i(TAG, "This device is not supported.")
+                info("This device is not supported.")
                 finish()
             }
             return false

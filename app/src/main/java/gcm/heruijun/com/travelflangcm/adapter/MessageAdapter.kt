@@ -14,12 +14,14 @@ import android.widget.TextView
 import gcm.heruijun.com.travelflangcm.R
 import gcm.heruijun.com.travelflangcm.data.protocol.ChatMessage
 import com.gcm.heruijun.base.ui.adapter.BaseAdapter
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.info
 
 /**
  * Created by heruijun on 2017/12/11.
  */
 
-class MessageAdapter<T : ChatMessage>(protected var context: Context, protected var chatMessages: MutableList<T>) : RecyclerView.Adapter<MessageAdapter.MessageViewHolder>(), BaseAdapter<T> {
+class MessageAdapter<T : ChatMessage>(protected var context: Context, protected var chatMessages: MutableList<T>) : RecyclerView.Adapter<MessageAdapter.MessageViewHolder>(), BaseAdapter<T>, AnkoLogger {
 
     protected var inflater: LayoutInflater
     protected lateinit var mMessageViewHolder: MessageViewHolder
@@ -63,7 +65,7 @@ class MessageAdapter<T : ChatMessage>(protected var context: Context, protected 
             TYPE_TEXT_LEFT -> onBindViewMsgLeftHolder(holder as TextMessageHolder, chatMessage, position)
             else -> {
                 onBindViewCustomHolder(holder, chatMessage, position)
-                Log.i(TAG, "onBindViewHolder TYPE_ATTACHMENT_CUSTOM")
+                info("onBindViewHolder TYPE_ATTACHMENT_CUSTOM")
             }
         }
     }
@@ -99,7 +101,7 @@ class MessageAdapter<T : ChatMessage>(protected var context: Context, protected 
     }
 
     protected fun onCreateCustomViewHolder(parent: ViewGroup, viewType: Int): MessageViewHolder? {
-        Log.e(TAG, "You must create ViewHolder by your own")
+        error("You must create ViewHolder by your own")
         return null
     }
 

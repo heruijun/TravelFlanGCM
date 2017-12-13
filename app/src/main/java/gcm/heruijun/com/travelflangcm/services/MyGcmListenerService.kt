@@ -9,18 +9,19 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.NotificationCompat
 import android.support.v4.content.LocalBroadcastManager
-import android.util.Log
 
 import com.google.android.gms.gcm.GcmListenerService
 
 import gcm.heruijun.com.travelflangcm.MainActivity
 import gcm.heruijun.com.travelflangcm.R
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.debug
 
 /**
  * Created by heruijun on 2017/12/10.
  */
 
-class MyGcmListenerService : GcmListenerService() {
+class MyGcmListenerService : GcmListenerService(), AnkoLogger {
 
     /**
      * Called when message is received.
@@ -31,8 +32,8 @@ class MyGcmListenerService : GcmListenerService() {
      */
     override fun onMessageReceived(from: String?, data: Bundle?) {
         val message = data!!.getString("message")
-        Log.d(TAG, "From: " + from!!)
-        Log.d(TAG, "Message: " + message!!)
+        debug("From: " + from!!)
+        debug("Message: " + message!!)
 
         if (from.startsWith("/topics/")) {
             // message received from some topic.

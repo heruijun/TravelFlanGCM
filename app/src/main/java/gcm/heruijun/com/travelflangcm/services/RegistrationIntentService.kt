@@ -14,12 +14,15 @@ import com.google.android.gms.iid.InstanceID
 import java.io.IOException
 
 import gcm.heruijun.com.travelflangcm.R
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.debug
+import org.jetbrains.anko.info
 
 /**
  * Created by heruijun on 2017/12/10.
  */
 
-class RegistrationIntentService : IntentService(TAG) {
+class RegistrationIntentService : IntentService(TAG), AnkoLogger {
 
     override fun onHandleIntent(intent: Intent?) {
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
@@ -28,7 +31,7 @@ class RegistrationIntentService : IntentService(TAG) {
             val instanceID = InstanceID.getInstance(this)
             val token = instanceID.getToken(getString(R.string.gcm_defaultSenderId),
                     GoogleCloudMessaging.INSTANCE_ID_SCOPE, null)
-            Log.i(TAG, "GCM Registration Token: " + token)
+            info("GCM Registration Token: " + token)
 
             sendRegistrationToServer(token)
 
@@ -41,7 +44,7 @@ class RegistrationIntentService : IntentService(TAG) {
             sharedPreferences.edit().putBoolean(QuickstartPreferences.SENT_TOKEN_TO_SERVER, true).apply()
             // [END register_for_gcm]
         } catch (e: Exception) {
-            Log.d(TAG, "Failed to complete token refresh", e)
+            debug("Failed to complete token refresh", e)
             // If an exception happens while fetching the new token or updating our registration data
             // on a third-party server, this ensures that we'll attempt the update at a later time.
             sharedPreferences.edit().putBoolean(QuickstartPreferences.SENT_TOKEN_TO_SERVER, false).apply()
