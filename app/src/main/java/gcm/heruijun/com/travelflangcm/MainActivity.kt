@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
+import android.preference.EditTextPreference
 import android.preference.PreferenceManager
 import android.support.v4.content.LocalBroadcastManager
 import android.support.v7.widget.AppCompatEditText
@@ -47,8 +48,8 @@ class MainActivity : BaseCompatActivity(), AnkoLogger {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        mMessageListView = findViewById(R.id.mMessageListView)
-        mEditText = findViewById(R.id.mEditText)
+        mMessageListView = find<RecyclerView>(R.id.mMessageListView)
+        mEditText = find<AppCompatEditText>(R.id.mEditText)
 
         obtainSentTokenStatus(this)
         mProgressDialog = DialogUtils.createProgressDialog(this)
